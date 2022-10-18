@@ -52,7 +52,7 @@ int _printf(const char* format, ...)
         else
         _putchar(format[i]);
     }
-    return (0);
+    return (i);
 }
 
 
