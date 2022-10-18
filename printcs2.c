@@ -1,16 +1,18 @@
 #include <stdarg.h>
 #include <stddef.h>
+#include "main.h"
 /**
  * print - print elements
  * @format: string of items
  * return : 0 on success
  */
-int print(const char* format, ...)
+int _printf(const char* format, ...)
 {
     va_list list;
     char chr, *str;
-    int i, intgr;
+    int i = 0, intgr = 0;
     va_start(list, format);
+
     for(i = 0; format[i] != '\0'; i++)
     {
         if(format[i] == 37)
@@ -52,3 +54,6 @@ int print(const char* format, ...)
     }
     return (0);
 }
+
+
+
