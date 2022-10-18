@@ -1,16 +1,10 @@
 #include <stdarg.h>
 #include <stddef.h>
-#include <unistd.h>
-int _putchar(char c)
-{
-    return (write(1, &c, 1));
-}
-void prnt_string(char *string)
-{
-    int n = 0;
-    for(n = 0; string[n] != '\0'; n++)
-    _putchar(string[n]);
-}
+/**
+ * print - print elements
+ * @format: string of items
+ * return : 0 on success
+ */
 void print(const char* format, ...)
 {
     va_list list;
@@ -56,12 +50,4 @@ void print(const char* format, ...)
         else
         _putchar(format[i]);
     }
-}
-int main()
-{
-    char a = 'A', b = 'L', c = 'X';
-    int i = 1;
-    char *string = "eam", *bdz = "Buddies";
-    print("%c%%%cX%d-T%s %s\n", a, b, i, string, bdz);
-    return 0;
 }
