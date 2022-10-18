@@ -5,7 +5,7 @@
  * @format: string of items
  * return : 0 on success
  */
-void print(const char* format, ...)
+int print(const char* format, ...)
 {
     va_list list;
     char chr, *str;
@@ -50,4 +50,5 @@ void print(const char* format, ...)
         else
         _putchar(format[i]);
     }
+    return (0);
 }
