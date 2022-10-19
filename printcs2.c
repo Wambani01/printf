@@ -1,5 +1,3 @@
-#include <stdarg.h>
-#include <stddef.h>
 #include "main.h"
 /**
  * print - print elements
@@ -9,8 +7,9 @@
 int _printf(const char* format, ...)
 {
     va_list list;
-    char chr, *str;
-    int i = 0, intgr = 0;
+    char chr;
+    char *str;
+    int i = 0, count = 0, strl = 0, intgr = 0;
     va_start(list, format);
 
     for(i = 0; format[i] != '\0'; i++)
@@ -25,7 +24,11 @@ int _printf(const char* format, ...)
                 {
                     prnt_string("(null)");
                 }
-                _putchar(chr);
+                else
+		{
+			_putchar(chr);
+			count++;
+		}
             }
             else if (format[i] == 'd')
             {
@@ -38,6 +41,7 @@ int _printf(const char* format, ...)
             else if(format[i] == '%')
             {
                 _putchar('%');
+		count++;
             }
             else if (format[i] == 's')
             {
@@ -46,14 +50,16 @@ int _printf(const char* format, ...)
                 {
                     prnt_string("(null)");
                 }
-                prnt_string(str);
+                strl = prnt_string(str);
+		count = count + strl;
             }
         }
         else
-        _putchar(format[i]);
+	{
+		_putchar(format[i]);
+		count++;
+	}
     }
-    return (i);
+    va_end(list);
+    return (count);
 }
-
-
-
