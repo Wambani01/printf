@@ -9,7 +9,7 @@ int _printf(const char* format, ...)
     va_list list;
     char chr;
     char *str;
-    int i = 0, count = 0, strl = 0, intgr = 0;
+    int i = 0, count = 0, strl = 0, ccount = 0, intgr = 0;
     va_start(list, format);
 
     for(i = 0; format[i] != '\0'; i++)
@@ -22,7 +22,8 @@ int _printf(const char* format, ...)
                 chr = va_arg(list, int);
                 if(!chr)
                 {
-                    prnt_string("(null)");
+                    ccount = prnt_string("(null)");
+		    count = count + ccount;
                 }
                 else
 		{
@@ -48,10 +49,14 @@ int _printf(const char* format, ...)
                 str = va_arg(list, char*);
                 if(!str)
                 {
-                    prnt_string("(null)");
+                    ccount = prnt_string("(null)");
+		    count = count + ccount;
                 }
-                strl = prnt_string(str);
-		count = count + strl;
+		else
+		{
+			strl = prnt_string(str);
+			count = count + strl;
+		}
             }
         }
         else
