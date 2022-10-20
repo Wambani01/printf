@@ -9,10 +9,6 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	
-	if (list == NULL)
-	{
-		return (-1);
-	}
 	char chr;
 	char *str;
 	int i = 0, count = 0;
