@@ -26,7 +26,7 @@ int charfunc(char chr)
 
 	if (!chr)
 	{
-		count += prnt_string("(null)");
+		return (-1);
 	}
 	else
 	{
@@ -47,7 +47,7 @@ int strfunc(char *str)
 
 	if (!str)
 	{
-		count += prnt_string("(null)");
+		return (-1);
 	}
 	else
 	{

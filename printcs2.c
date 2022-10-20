@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _printf- print elements
  * @format: string of items
@@ -13,7 +14,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	if (!format || !list)
+	if (!format || list == NULL)
 	{
 		return (-1);
 	}
@@ -52,5 +53,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	return (count);
-}
+} 
 
