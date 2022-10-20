@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * print - print elements
+ * _printf- print elements
  * @format: string of items
- * return : 0 on success
+ * Return: 0 on success
  */
 int _printf(const char *format, ...)
 {

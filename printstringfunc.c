@@ -16,7 +16,7 @@ int prnt_string(char *string)
 }
 /**
  * charfunc - print characters
- * @char: character being printed
+ * @chr: character being printed
  * Return: count of characters
  */
 
