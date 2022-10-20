@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-	if (format == "")
+	if (!format)
 	{
 		return (1);
 	}
