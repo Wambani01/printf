@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	int i = 0, count = 0;
 
 	va_start(list, format);
-	 if (!format)
+	if (!format || list == NULL)
         {
                 return (1);
         }
