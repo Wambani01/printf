@@ -1,24 +1,12 @@
-#include "main.h"
+#ifndef MAIN_H
+#define MAIN_H
 
-/**
- *_printf - prints to the output
- *
- *@format: pointer
- *
- *Return: input len
- *
- */
 
-int _printf(const char *format, ...)
-{
-	va_list arg;
-	int done;
 
-	va_start(arg, format);
 
-	done = vfprintf(stdout, format, arg);
-	va_end(arg);
-		
-	return (done);
+#include <stdio.h>
+#include <stdarg.h>
 
-}
+int _printf(const char *format, ...);
+
+#endif
