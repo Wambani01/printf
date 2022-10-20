@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _printf- print elements
  * @format: string of items
@@ -6,6 +7,10 @@
  */
 int _printf(const char *format, ...)
 {
+	if (format == NULL)
+	{
+		return (-1);
+	}
 	va_list list;
 	
 	char chr;
