@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * prnt_string - print string
  * @string: parameter
@@ -24,7 +25,7 @@ int charfunc(char chr)
 {
 	int count = 0;
 
-	if (chr == NULL)
+	if (!chr)
 	{
 		return (-1);
 	}
