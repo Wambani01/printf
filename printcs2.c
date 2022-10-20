@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	va_list list;
 	char chr;
 	char *str;
-	int i = 0, count = 0, strl = 0, ccount = 0, intgr = 0;
+	int i = 0, count = 0;
 
 	va_start(list, format);
 
@@ -21,56 +21,29 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 			{
 				chr = va_arg(list, int);
-				if (!chr)
-				{
-					ccount = prnt_string("(null)");
-					count = count + ccount;
-				}
-				else
-				{
-					_putchar(chr);
-					count++;
-				}
-			}
-			else if (format[i] == 'd')
-			{
-				intgr = va_arg(list, int);
-				if (intgr < 10)
-				{
-					_putchar(intgr + '0');
-				}
+				count += charfunc(chr);
 			}
 			else if (format[i] == '%')
 			{
-				_putchar('%');
-				count++;
+				count += prnt_string("%");
 			}
 			else if (format[i] == 's')
 			{
 				str = va_arg(list, char*);
-				if (!str)
-				{
-					ccount = prnt_string("(null)");
-					count = count + ccount;
-				}
-				else
-				{
-					strl = prnt_string(str);
-					count = count + strl;
-				}
+				count += strfunc(str);
 			}
 			else
 			{
-				_putchar(format[i]);
-				count++;
+				count += charfunc('%');
+				count += charfunc(format[i]);
 			}
 		}
 		else
 		{
-			_putchar(format[i]);
-			count++;
+			count += charfunc(format[i]);
 		}
 	}
 	va_end(list);
 	return (count);
 }
+
