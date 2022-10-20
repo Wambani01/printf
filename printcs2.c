@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	if (!format || list == NULL)
+	if (!format)
 	{
 		return (-1);
 	}
@@ -54,4 +54,5 @@ int _printf(const char *format, ...)
 	va_end(list);
 	return (count);
 } 
+
 
