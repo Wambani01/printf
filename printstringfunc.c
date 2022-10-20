@@ -27,7 +27,7 @@ int charfunc(char chr)
 
 	if (!chr)
 	{
-		return (-1);
+		return(1);
 	}
 	else
 	{
@@ -46,9 +46,9 @@ int strfunc(char *str)
 {
 	int count = 0;
 
-	if (str == NULL)
+	if (!str)
 	{
-		return (-1);
+		return (1);
 	}
 	else
 	{
