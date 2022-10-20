@@ -18,7 +18,6 @@ int _printf(const char *format, ...)
 
 	done = vfprintf(stdout, format, arg);
 	va_end(arg);
-		
 	return (done);
 
 }
