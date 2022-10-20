@@ -13,34 +13,41 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	for (i = 0; format[i] != '\0'; i++)
+	if (!format || !list)
 	{
-		if (format[i] == 37)
+		return (-1);
+	}
+	else
+	{
+		for (i = 0; format[i] != '\0'; i++)
 		{
-			i++;
-			if (format[i] == 'c')
+			if (format[i] == 37)
 			{
-				chr = va_arg(list, int);
-				count += charfunc(chr);
-			}
-			else if (format[i] == '%')
-			{
-				count += prnt_string("%");
-			}
-			else if (format[i] == 's')
-			{
-				str = va_arg(list, char*);
-				count += strfunc(str);
+				i++;
+				if (format[i] == 'c')
+				{
+					chr = va_arg(list, int);
+					count += charfunc(chr);
+				}
+				else if (format[i] == '%')
+				{
+					count += prnt_string("%");
+				}
+				else if (format[i] == 's')
+				{
+					str = va_arg(list, char*);
+					count += strfunc(str);
+				}
+				else
+				{
+					count += charfunc('%');
+					count += charfunc(format[i]);
+				}
 			}
 			else
 			{
-				count += charfunc('%');
 				count += charfunc(format[i]);
 			}
-		}
-		else
-		{
-			count += charfunc(format[i]);
 		}
 	}
 	va_end(list);
